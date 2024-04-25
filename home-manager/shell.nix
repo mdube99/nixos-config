@@ -39,7 +39,6 @@
 	g = "git";
 #alias ls="ls -l"
 # for simple edits, use small config
-	vim = "nvim -u \"$HOME/.config/nvim_noplug/init.lua\"";
 	thunar = "thunar . &";
 	td = "tmux detach";
 	tk = "tmux kill-session";

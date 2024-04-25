@@ -17,10 +17,12 @@
     # inputs.nix-colors.homeManagerModules.default
 
     # You can also split up your configuration and import pieces of it here:
-    ./shell.nix
     ./tmux.nix
+    ./shell.nix
     ./git.nix
     ./wezterm.nix
+    ./firefox.nix
+    ./vim.nix
   ];
 
   nixpkgs = {
@@ -62,6 +64,8 @@
     recursive = true;
   };
 
+  home.file."Xresources".source = ../configurations/x/.Xresources;
+
   # Add stuff for your user as you see fit:
   programs.neovim = {
     enable = true;
@@ -101,9 +105,8 @@
     zip
     unzip
     updog
-    stow
     ripgrep
-    
+
     cargo
     rustc
     go
@@ -113,7 +116,7 @@
     pyright
     ruff
     nil # nix
-    
+
     xsel
     xclip
     gcc
