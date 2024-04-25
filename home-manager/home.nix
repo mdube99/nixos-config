@@ -64,7 +64,7 @@
     recursive = true;
   };
 
-  home.file."Xresources".source = ../configurations/x/.Xresources;
+  home.file.".Xresources".source = ../configurations/x/.Xresources;
 
   # Add stuff for your user as you see fit:
   programs.neovim = {

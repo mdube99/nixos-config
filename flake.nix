@@ -79,6 +79,14 @@
           ./nixos/configuration.nix
         ];
       };
+      fortra = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main nixos configuration file <
+          ./nixos/configuration.nix
+          ./modules/nixos/pentest.nix
+        ];
+      };
     };
 
     # Standalone home-manager configuration entrypoint
