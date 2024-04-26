@@ -21,7 +21,7 @@
     # ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
-    ./hardware-configuration.nix
+    #./hardware-configuration.nix
   ];
 
   nixpkgs = {
@@ -115,8 +115,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # TODO: Set your hostname
-  networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
   # TODO: This is just an example, be sure to use whatever bootloader you prefer

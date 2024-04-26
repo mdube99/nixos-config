@@ -69,7 +69,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
-          ./nixos/configuration.nix
+          ./nixos/laptop/configuration.nix
         ];
       };
       wsl = nixpkgs.lib.nixosSystem {
@@ -83,7 +83,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
-          ./nixos/configuration.nix
+          ./nixos/vm/configuration.nix
           ./modules/nixos/pentest.nix
         ];
       };
