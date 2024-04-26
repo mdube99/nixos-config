@@ -16,13 +16,7 @@
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
 
-    # You can also split up your configuration and import pieces of it here:
-    ./tmux.nix
-    ./shell.nix
-    ./git.nix
-    ./wezterm.nix
-    ./firefox.nix
-    ./vim.nix
+    ../modules/home-manager
   ];
 
   nixpkgs = {
@@ -121,11 +115,13 @@
     gcc
     tree
     pipx
+    poetry
 
 # network stuff
     nmap
     whois
     dig
+    openssl
 
 # devops
     docker
@@ -138,6 +134,9 @@
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
+  home.sessionPath = [
+    "$HOME/.local/bin:$PATH"
+  ];
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
