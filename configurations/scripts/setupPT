@@ -1,0 +1,27 @@
+#/usr/bin/env bash
+
+setup() {
+	echo "Setup Penetration Test"
+
+	printf "\n"
+	read -p "[+] IPT or EPT: " PTtype
+	printf "\n"
+
+	read -p "[+] Client name: " PTclient
+	PTclient=$(sed 's/ /_/g' <<<"$PTclient")
+	read -p "[+] Service: " PTservice
+
+	PTname="${PTtype}_${PTclient}_${PTservice}"
+	echo $PTname
+
+	# set full directory
+	fulldir=$HOME/clients/"$PTname"
+
+	# creates directory for PT
+	mkdir -p $fulldir
+
+	# create tmux session
+	tmux new-session -As $PTname -c $fulldir
+}
+
+setup

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ -n "$TMUX_PANE" ]]; then
+  session_name=$(tmux list-panes -t "$TMUX_PANE" -F '#S' | head -n1)
+fi
+
+for l in $(tmux list-windows | awk -F ":" '{print $1}'); do
+    tmux send-keys -t $l "C-c" C-m
+done
