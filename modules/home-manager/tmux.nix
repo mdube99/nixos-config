@@ -16,7 +16,7 @@
       pkgs.tmuxPlugins.better-mouse-mode
       pkgs.tmuxPlugins.sensible
       pkgs.tmuxPlugins.vim-tmux-navigator
-      pkgs.tmuxPlugins.gruvbox
+      pkgs.tmuxPlugins.power-theme
     ];
 
     extraConfig = ''
@@ -32,7 +32,7 @@
       bind-key C-n next-window
 
 # Easy Config Reloads
-      bind-key r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded"
+      bind-key r source-file ~/.config/tmux/tmux.conf \; display-message "Tmux config reloaded"
 
 # Direction
       bind h select-pane -L
