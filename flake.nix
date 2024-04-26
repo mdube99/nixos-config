@@ -3,20 +3,23 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     # You can access packages and modules from different nixpkgs revs
     # at the same time. Here's an working example:
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-23.05";
+    home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions/?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
       };
+
+    nixos-wsl.url = "github:nix-community/NixOS-WSL";
+    nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
@@ -76,7 +79,8 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
-          ./nixos/configuration.nix
+	  inputs.nixos-wsl.nixosModules.wsl
+          ./nixos/wsl/configuration.nix
         ];
       };
       vm = nixpkgs.lib.nixosSystem {
@@ -93,6 +97,15 @@
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
       "mark@nixos" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main home-manager configuration file <
+          # will add more eventually
+          ./home-manager/home.nix
+        ];
+      };
+      "mark@wsl" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [

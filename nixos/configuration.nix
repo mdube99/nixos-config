@@ -117,12 +117,6 @@
 
   networking.networkmanager.enable = true;
 
-  # TODO: This is just an example, be sure to use whatever bootloader you prefer
-  #boot.loader.systemd-boot.enable = true;
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
-
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 

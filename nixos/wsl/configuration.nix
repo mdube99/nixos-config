@@ -25,11 +25,25 @@
     ../configuration.nix
   ];
   # TODO: Set your hostname
-  networking.hostName = "vm";
-  # TODO: This is just an example, be sure to use whatever bootloader you prefer
-  #boot.loader.systemd-boot.enable = true;
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
+  networking.hostName = "wsl";
+
+  wsl = {
+    enable = true;
+    wslConf.automount.root = "/mnt";
+    wslConf.interop.appendWindowsPath = false;
+    # wslConf.network.generateHosts = true;
+    # wslConf.network.generateResolvConf = true;
+    #defaultUser = username;
+    startMenuLaunchers = true;
+
+    # Enable integration with Docker Desktop (needs to be installed)
+    docker-desktop.enable = false;
+  };
+
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = true;
+    autoPrune.enable = true;
+  };
 
 }

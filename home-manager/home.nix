@@ -69,9 +69,9 @@
   programs.neovim = {
     enable = true;
     package = pkgs.unstable.neovim-unwrapped;
-    extraPackages = [
-      pkgs.rnix-lsp
-    ];
+    #extraPackages = [
+      #pkgs.rnix-lsp
+    #];
   };
 
   programs.fzf = {
