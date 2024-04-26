@@ -56,7 +56,6 @@
     username = "mark";
     homeDirectory = "/home/mark";
     sessionVariables.EDITOR = "nvim";
-    sessionVariables.SHELL = pkgs.zsh;
   };
 
   xdg.configFile."nvim" = {

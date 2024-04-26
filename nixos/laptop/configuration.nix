@@ -22,6 +22,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
+    ../configuration.nix
   ];
   # TODO: Set your hostname
   networking.hostName = "nixos";

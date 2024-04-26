@@ -79,7 +79,7 @@
           ./nixos/configuration.nix
         ];
       };
-      fortra = nixpkgs.lib.nixosSystem {
+      vm = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
