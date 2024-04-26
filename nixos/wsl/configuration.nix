@@ -24,7 +24,7 @@
     ./hardware-configuration.nix
     ../configuration.nix
   ];
-  # TODO: Set your hostname
+
   networking.hostName = "wsl";
 
   wsl = {
@@ -33,7 +33,7 @@
     wslConf.interop.appendWindowsPath = false;
     # wslConf.network.generateHosts = true;
     # wslConf.network.generateResolvConf = true;
-    #defaultUser = username;
+    defaultUser = "mark";
     startMenuLaunchers = true;
 
     # Enable integration with Docker Desktop (needs to be installed)
