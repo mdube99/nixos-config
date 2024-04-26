@@ -109,6 +109,7 @@
     pyright
     ruff
     nil # nix
+    gopls
 
     xsel
     xclip
