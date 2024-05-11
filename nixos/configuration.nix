@@ -141,6 +141,12 @@
     zsh
   ];
 
+  nix.gc = {
+          automatic = true;
+          dates = "weekly";
+          options = "--delete-older-than 30d";
+  };
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
 }
