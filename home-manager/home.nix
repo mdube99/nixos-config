@@ -104,6 +104,8 @@
     zip
     unzip
     updog
+    unstable.nh
+    any-nix-shell 
     ripgrep
 
     cargo

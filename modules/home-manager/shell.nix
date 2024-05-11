@@ -33,7 +33,7 @@
       }
     '';
 
-    initExtra = "source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh ";
+    initExtra = "source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh && any-nix-shell zsh --info-right | source /dev/stdin";
     shellAliases = {
 	cd = "c";
 	g = "git";
