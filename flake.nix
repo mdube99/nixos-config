@@ -16,7 +16,9 @@
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions/?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
-      };
+    };
+
+    nixvim.url = "github:mdube99/nixvim";
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
@@ -79,7 +81,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
-	  inputs.nixos-wsl.nixosModules.wsl
+          inputs.nixos-wsl.nixosModules.wsl
           ./nixos/wsl/configuration.nix
         ];
       };

@@ -52,11 +52,10 @@
     sessionVariables.EDITOR = "nvim";
   };
 
-  xdg.configFile."nvim" = {
-    source = ./nvim;
-    recursive = true;
-  };
-
+  # xdg.configFile."nvim" = {
+  #   source = ./nvim;
+  #   recursive = true;
+  # };
 
   home.file.".Xresources".source = ../configurations/x/.Xresources;
   home.file.".local/bin" = {
@@ -66,13 +65,13 @@
 
 
   # Add stuff for your user as you see fit:
-  programs.neovim = {
-    enable = true;
-    package = pkgs.unstable.neovim-unwrapped;
+  #programs.neovim = {
+  #enable = true;
+    #package = pkgs.unstable.neovim-unwrapped;
     #extraPackages = [
       #pkgs.rnix-lsp
     #];
-  };
+  #};
 
   programs.fzf = {
     enable = true;
@@ -88,7 +87,7 @@
   programs.lsd = {
     enable = true;
     enableAliases = true;
-    };
+  };
 
   home.packages = with pkgs; [
     bat
@@ -105,7 +104,7 @@
     unzip
     updog
     unstable.nh
-    any-nix-shell 
+    any-nix-shell
     ripgrep
 
     cargo
@@ -115,7 +114,7 @@
     nodejs
     python3
     pyright
-    ruff
+    unstable.ruff
     nil # nix
     gopls
 

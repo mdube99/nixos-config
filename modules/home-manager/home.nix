@@ -59,10 +59,10 @@
     sessionVariables.EDITOR = "nvim";
   };
 
-  xdg.configFile."nvim" = {
-    source = ./nvim;
-    recursive = true;
-  };
+  #xdg.configFile."nvim" = {
+    #source = ./nvim;
+    #recursive = true;
+  #};
 
   home.file.".Xresources".source = ../configurations/x/.Xresources;
 
