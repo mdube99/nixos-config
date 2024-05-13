@@ -16,12 +16,6 @@
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
-
-    # Import your generated (nixos-generate-config) hardware configuration
-    #./hardware-configuration.nix
   ];
 
   nixpkgs = {
@@ -71,25 +65,25 @@
     auto-optimise-store = true;
   };
 
-  services.xserver.enable = true; 
-  
+  services.xserver.enable = true;
+
   services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
 
   services.xserver.windowManager.i3 = {
-      enable = true;
-      package = pkgs.i3-gaps;
-      configFile = ../configurations/i3/config;
+    enable = true;
+    package = pkgs.i3-gaps;
+    configFile = ../configurations/i3/config;
 
-      extraPackages = with pkgs; [
-        dmenu
-        i3status
-      ];
-    };
-  
+    extraPackages = with pkgs; [
+      dmenu
+      i3status
+    ];
+  };
+
   services.xserver = {
-  	layout = "us";
-  	xkbVariant = "";
+    layout = "us";
+    xkbVariant = "";
   };
 
   virtualisation.vmware.guest.enable = true;
@@ -124,13 +118,13 @@
   users.users = {
     mark = {
       isNormalUser = true;
-      packages = [ inputs.home-manager.packages.${pkgs.system}.default ];
+      packages = [inputs.home-manager.packages.${pkgs.system}.default];
       extraGroups = ["networkmanager" "docker" "wheel"];
       shell = pkgs.zsh;
     };
   };
 
-# system wide programs
+  # system wide programs
   environment.systemPackages = with pkgs; [
     vim
     wget
@@ -142,9 +136,9 @@
   ];
 
   nix.gc = {
-          automatic = true;
-          dates = "weekly";
-          options = "--delete-older-than 30d";
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

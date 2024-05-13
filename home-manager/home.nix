@@ -26,16 +26,6 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
-
-      # You can also add overlays exported from other flakes:
-      #neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
     ];
     # Configure your nixpkgs instance
     config = {
@@ -59,34 +49,26 @@
 
   home.file.".Xresources".source = ../configurations/x/.Xresources;
   home.file.".local/bin" = {
-      source = ../configurations/scripts;
-      recursive = true;
+    source = ../configurations/scripts;
+    recursive = true;
+  };
+
+  programs = {
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
     };
-
-
-  # Add stuff for your user as you see fit:
-  #programs.neovim = {
-  #enable = true;
-    #package = pkgs.unstable.neovim-unwrapped;
-    #extraPackages = [
-      #pkgs.rnix-lsp
-    #];
-  #};
-
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-  programs.zoxide = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
-  programs.zellij.enable = true;
-
-  programs.lsd = {
-    enable = true;
-    enableAliases = true;
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+    zellij = {
+      enable = true;
+    };
+    lsd = {
+      enable = true;
+      enableAliases = true;
+    };
   };
 
   home.packages = with pkgs; [
@@ -125,19 +107,19 @@
     pipx
     poetry
 
-# network stuff
+    # network stuff
     nmap
     whois
     dig
     openssl
 
-# devops
+    # devops
     docker
     awscli2
     terraform
     ansible
 
-    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+    (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
   ];
 
   # Enable home-manager and git
