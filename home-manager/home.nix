@@ -42,11 +42,6 @@
     sessionVariables.EDITOR = "nvim";
   };
 
-  # xdg.configFile."nvim" = {
-  #   source = ./nvim;
-  #   recursive = true;
-  # };
-
   home.file.".Xresources".source = ../configurations/x/.Xresources;
   home.file.".local/bin" = {
     source = ../configurations/scripts;
@@ -68,6 +63,11 @@
     lsd = {
       enable = true;
       enableAliases = true;
+    };
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
     };
   };
 
