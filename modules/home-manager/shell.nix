@@ -48,8 +48,9 @@
       zrf = "zellij run -f -- ";
       cat = "bat";
       clip = "xsel --clipboard";
-      grep = "rg";
+      #grep = "rg";
       activate = "source env/bin/activate";
+      IP = "tmux list-windows | grep \"\*\" | grep -E -o \"([0-9]{1,3}[\.]){3}[0-9]{1,3}\"";
 
       # script to copy nmap scripts
       nmapScripts = "ls /usr/share/nmap/scripts | fzf --reverse | xsel --clipboard";
