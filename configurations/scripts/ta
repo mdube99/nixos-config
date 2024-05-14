@@ -27,7 +27,7 @@ if [ "$DIR" == "." ]; then
 else
     # ask the user which directory to start in
     # _session_name=$(cd $DIR && ls -d */ | sed  "s|/||g" | fzf --reverse --header="Select project from $(basename $DIR) >")
-    _session_name=$(find ~/development /opt/ ~/clients ~/ -mindepth 1 -maxdepth 1 -type d | fzf --reverse --header="Select project >")
+    _session_name=$(find ~/development ~/clients ~/ -mindepth 1 -maxdepth 1 -type d | fzf --reverse --header="Select project >")
     _session_name=${_session_name//./_}
     session_name="$(basename "$_session_name" | tr . -)"
     path_name=$_session_name
