@@ -88,6 +88,7 @@
     unstable.nh
     any-nix-shell
     ripgrep
+    unstable.sesh
 
     cargo
     rustc
