@@ -31,6 +31,7 @@
       	  variable1=$(echo ~/Downloads/$(/usr/bin/ls -ltr ~/Downloads | tail -n1 | awk {"print \$9"}));
       	  echo $variable1;
             }
+            eval "$(direnv hook zsh)"
     '';
 
     initExtra = "source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh && any-nix-shell zsh --info-right | source /dev/stdin";

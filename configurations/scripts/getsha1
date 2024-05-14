@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+if [ $# -ne 2 ]
+then
+        echo "Usage: getsha1 <github_url> <path_to_store_file>
+        IE: getsha1 https://github.com/danielmiessler/SecLists Documents/wordlists/seclists"
+        exit
+fi
+github="$1"
+sha1=$(git ls-remote $1 | awk '{print $1}' | head -n 1)
+echo "
+home.file = {
+    \"$2\".source = builtins.fetchGit {
+    url = \"$1\";
+    rev = \"$sha1\";
+    };
+};
+"

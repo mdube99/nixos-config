@@ -105,6 +105,7 @@
           # > Our main home-manager configuration file <
           # will add more eventually
           ./home-manager/home.nix
+          ./modules/home-manager/pentest.nix
         ];
       };
       "mark@wsl" = home-manager.lib.homeManagerConfiguration {

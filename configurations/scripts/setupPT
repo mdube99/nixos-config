@@ -35,6 +35,9 @@ setup() {
           ];
         }
     """ >> $fulldir/shell.nix
+    echo "use nix" >> $fulldir/.envrc
+    cd $fulldir 
+    direnv allow
 
 	# create tmux session
 	tmux new-session -As $PTname -c $fulldir
