@@ -51,6 +51,7 @@
       #grep = "rg";
       activate = "source env/bin/activate";
       IP = "tmux list-windows | grep \"\*\" | grep -E -o \"([0-9]{1,3}[\.]){3}[0-9]{1,3}\"";
+      t = "sesh connect $(sesh list | fzf)";
 
       # script to copy nmap scripts
       nmapScripts = "ls /usr/share/nmap/scripts | fzf --reverse | xsel --clipboard";
