@@ -96,10 +96,6 @@
     lua
     nodejs
     python3
-    pyright
-    unstable.ruff
-    nil # nix
-    gopls
 
     xsel
     xclip
