@@ -102,8 +102,6 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          # > Our main home-manager configuration file <
-          # will add more eventually
           ./home-manager/home.nix
           ./modules/home-manager/pentest.nix
         ];
