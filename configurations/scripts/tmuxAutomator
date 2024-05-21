@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 FILENAME=${1?Specifiy a filename, Dumbass}
 COUNTER=1
@@ -16,5 +16,5 @@ for l in $(cat $FILENAME); do
   COUNTER=$[COUNTER + 1]
   tmux new-window -t $session_name:$COUNTER -n $l
   tmux send-keys "export IP=$l" C-m
-  tmux send-keys "customAutomator -H $l -t All" C-m
+  tmux send-keys "sudo nmapAutomator -H $l -t All" C-m
 done
