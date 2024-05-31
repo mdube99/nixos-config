@@ -57,6 +57,7 @@
       #grep = "rg";
       activate = "source env/bin/activate";
       IP = "tmux list-windows | grep \"\*\" | grep -E -o \"([0-9]{1,3}[\.]){3}[0-9]{1,3}\"";
+      cpIP = "tmux list-windows | grep \"\*\" | grep -E -o \"([0-9]{1,3}[\.]){3}[0-9]{1,3}\" | xsel --clipboard";
       t = "sesh connect $(sesh list | fzf)";
       #dvd = "echo use flake \"github:the-nix-way/dev-templates?dir=$1\" >> .envrc && direnv allow";
 
