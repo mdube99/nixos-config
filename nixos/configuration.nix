@@ -25,16 +25,6 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
-
-      # You can also add overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
     ];
     # Configure your nixpkgs instance
     config = {
@@ -65,27 +55,6 @@
     auto-optimise-store = true;
   };
 
-  services.xserver.enable = true;
-
-  services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
-
-  services.xserver.windowManager.i3 = {
-    enable = true;
-    package = pkgs.i3-gaps;
-    configFile = ../configurations/i3/config;
-
-    extraPackages = with pkgs; [
-      dmenu
-      i3status
-    ];
-  };
-
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
-
   virtualisation.vmware.guest.enable = true;
   virtualisation.docker.enable = true;
 
@@ -107,7 +76,7 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.xserver.libinput.enable = true;
 
   networking.networkmanager.enable = true;
 
@@ -131,7 +100,6 @@
     curl
     git
     firefox
-    alacritty
     zsh
   ];
 

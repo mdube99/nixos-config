@@ -9,7 +9,23 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
+    # framework
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    # styling
+    stylix.url = "github:danth/stylix";
+
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+
+    hyprland-hyprspace = {
+      url = "github:KZDKM/Hyprspace";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-23.11";
@@ -77,7 +93,8 @@
         modules = [
           # > Our main nixos configuration file <
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
-          ./framework/laptop/configuration.nix
+          inputs.stylix.nixosModules.stylix
+          ./nixos/framework/configuration.nix
         ];
       };
       wsl = nixpkgs.lib.nixosSystem {
@@ -115,6 +132,16 @@
         modules = [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
+        ];
+      };
+      "mark@framework" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main home-manager configuration file <
+          ./home-manager/home.nix
+          ./modules/home-manager/desktop.nix
+          ./modules/home-manager/hyprland.nix
         ];
       };
     };

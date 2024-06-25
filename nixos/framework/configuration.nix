@@ -23,16 +23,26 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
     ../configuration.nix
+    ../../modules/nixos/sway.nix
+    ../../modules/nixos/hyprland.nix
+    ../../modules/nixos/desktop.nix
   ];
-  # TODO: Set your hostname
   networking.hostName = "framework";
 
-  # TODO: This is just an example, be sure to use whatever bootloader you prefer
-  #boot.loader.systemd-boot.enable = true;
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
-
-  kernelPackages = pkgs.linuxPackages_latest;
+  boot.initrd.luks.devices."luks-07d01450-5604-456e-8e6c-24e209f22c8a".device = "/dev/disk/by-uuid/07d01450-5604-456e-8e6c-24e209f22c8a";
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "thunderbolt"];
+
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  stylix.enable = true;
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyodark.yaml";
+
+  stylix.image = ../../configurations/wallpapers/facet.jpg;
+
+  environment.systemPackages = with pkgs; [
+    base16-schemes
+  ];
 }

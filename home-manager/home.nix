@@ -89,6 +89,7 @@
     any-nix-shell
     ripgrep
     unstable.sesh
+    acpi
 
     cargo
     rustc

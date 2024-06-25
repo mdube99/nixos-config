@@ -45,5 +45,4 @@
     enableOnBoot = true;
     autoPrune.enable = true;
   };
-
 }

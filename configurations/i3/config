@@ -14,7 +14,7 @@ set $mod Mod1
 workspace_layout default
 
 #border indicator on windows:
-new_window pixel 2
+default_border pixel 2
 
 # Set inner/outer gaps
 gaps inner 6
@@ -190,16 +190,16 @@ bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
 # set $ws9 "9"
 # set $ws10 "10"
 
-set $ws1 " 1 "
-set $ws2 " 2 "
-set $ws3 " 3 "
-set $ws4 " 4 "
-set $ws5 " 5 "
-set $ws6 " 6 "
-set $ws7 " 7 "
-set $ws8 " 8 "
-set $ws9 " 9 "
-set $ws10 " 10 "
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10
 
 # bind program to workspace and focus to them on startup:
 #assign [class="(?i)firefox"] $ws2
