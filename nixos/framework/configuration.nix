@@ -25,7 +25,7 @@
     ../configuration.nix
   ];
   # TODO: Set your hostname
-  networking.hostName = "nixos";
+  networking.hostName = "framework";
 
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   #boot.loader.systemd-boot.enable = true;
@@ -33,4 +33,6 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
+  kernelPackages = pkgs.linuxPackages_latest;
+  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "thunderbolt"];
 }
