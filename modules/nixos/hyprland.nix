@@ -76,5 +76,4 @@
       gnome-online-accounts.enable = true;
     };
   };
-  wayland.windowManager.hyprland.settings.general."col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base0E})";
 }

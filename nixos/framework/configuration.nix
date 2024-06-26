@@ -25,26 +25,18 @@
     ../configuration.nix
     ../../modules/nixos/hyprland.nix
     ../../modules/nixos/desktop.nix
+    ../../modules/nixos/stylix.nix
   ];
   networking.hostName = "framework";
 
-  boot.initrd.luks.devices."luks-07d01450-5604-456e-8e6c-24e209f22c8a".device = "/dev/disk/by-uuid/07d01450-5604-456e-8e6c-24e209f22c8a";
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "thunderbolt"];
+  boot = {
+    initrd.luks.devices."luks-07d01450-5604-456e-8e6c-24e209f22c8a".device = "/dev/disk/by-uuid/07d01450-5604-456e-8e6c-24e209f22c8a";
+    kernelPackages = pkgs.linuxPackages_latest;
+    initrd.availableKernelModules = ["nvme" "xhci_pci" "thunderbolt"];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  stylix.enable = true;
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyodark.yaml";
-
-  stylix.image = ../../configurations/wallpapers/facet.jpg;
-
-  #stylix.cursor.package = pkgs.bibata-cursors;
-  #stylix.cursor.name = "Bibata-Modern-Ice";
-
-  #stylix.polarity = "dark"; # “light” or “either”
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+  };
 
   environment.systemPackages = with pkgs; [
     base16-schemes
