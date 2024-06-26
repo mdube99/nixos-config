@@ -23,7 +23,6 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
     ../configuration.nix
-    ../../modules/nixos/sway.nix
     ../../modules/nixos/hyprland.nix
     ../../modules/nixos/desktop.nix
   ];
@@ -42,7 +41,15 @@
 
   stylix.image = ../../configurations/wallpapers/facet.jpg;
 
+  #stylix.cursor.package = pkgs.bibata-cursors;
+  #stylix.cursor.name = "Bibata-Modern-Ice";
+
+  #stylix.polarity = "dark"; # “light” or “either”
+
   environment.systemPackages = with pkgs; [
     base16-schemes
+    bibata-cursors
+    dejavu_fonts
+    nerdfonts
   ];
 }
