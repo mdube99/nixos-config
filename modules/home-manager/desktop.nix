@@ -6,7 +6,10 @@
     wdisplays
     networkmanagerapplet
     dunst
+    wl-clipboard
   ];
+
+  # needed for obsidian
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
   ];

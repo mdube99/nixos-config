@@ -16,14 +16,14 @@
       pkgs.tmuxPlugins.better-mouse-mode
       pkgs.tmuxPlugins.sensible
       pkgs.tmuxPlugins.vim-tmux-navigator
-      {
-        plugin = pkgs.tmuxPlugins.power-theme;
-        extraConfig = ''
-          set -g @tmux_power_theme '#7aa2f7' # dark slate blue
-          set -g @tmux_power_right_arrow_icon     "█"
-          set -g @tmux_power_left_arrow_icon      "█"
-        '';
-      }
+      # {
+      #   plugin = pkgs.tmuxPlugins.power-theme;
+      #   extraConfig = ''
+      #     #set -g @tmux_power_theme '#7aa2f7' # dark slate blue
+      #     set -g @tmux_power_right_arrow_icon     "█"
+      #     set -g @tmux_power_left_arrow_icon      "█"
+      #   '';
+      # }
       pkgs.tmuxPlugins.fuzzback
     ];
 
