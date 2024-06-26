@@ -42,7 +42,6 @@
     sessionVariables.EDITOR = "nvim";
   };
 
-  home.file.".Xresources".source = ../configurations/x/.Xresources;
   home.file.".local/bin" = {
     source = ../configurations/scripts;
     recursive = true;

@@ -139,6 +139,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main home-manager configuration file <
+          inputs.stylix.homeManagerModules.stylix
           ./home-manager/home.nix
           ./modules/home-manager/desktop.nix
           ./modules/home-manager/hyprland.nix

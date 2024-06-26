@@ -21,7 +21,7 @@
       -- This is where you actually apply your config choices
 
       -- For example, changing the color scheme:
-      config.color_scheme = 'tokyonight_night'
+      --config.color_scheme = 'tokyonight_night'
       config.enable_tab_bar = false
 
       -- and finally, return the configuration to wezterm
