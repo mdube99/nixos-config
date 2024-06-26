@@ -39,9 +39,9 @@
     },
     "clock": {
         "interval": 60,
-        "format": "  {:%a %b %d  %I:%M %p}", // %b %d %Y  --Date formatting
+        "format": "{:%Y-%m-%d}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format-alt": "  {:%a %b %d  %I:%M %p}" // %b %d %Y  --Date formatting
     },
    "temperature": {
         "critical-threshold": 80,
@@ -63,7 +63,7 @@
         "format": "󰋊 {percentage_used}%",
     },
     "network": {
-        "format-wifi": "",
+        "format-wifi": " ",
         "format-ethernet": " {ipaddr}/{cidr}",
         "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
         "tooltip-format": "{ifname} via {gwaddr} ",

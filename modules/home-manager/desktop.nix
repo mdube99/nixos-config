@@ -7,6 +7,10 @@
     networkmanagerapplet
     dunst
     wl-clipboard
+    libnotify
+    flameshot
+    xdg-desktop-portal-hyprland
+    hypridle
   ];
 
   # needed for obsidian

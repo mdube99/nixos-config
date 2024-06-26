@@ -27,7 +27,7 @@
       	  lsd;
         }
         dvd() {
-          echo "use flake github:the-nix-way/dev-templates?dir=$1" >> .envrc;
+          echo "use flake \"github:the-nix-way/dev-templates?dir=$1\"" >> .envrc;
           direnv allow;
         }
 

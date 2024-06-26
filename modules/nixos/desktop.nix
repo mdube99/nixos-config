@@ -7,4 +7,5 @@
   ...
 }: {
   programs.steam.enable = true;
+  services.tailscale.enable = true;
 }
