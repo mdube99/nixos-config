@@ -84,7 +84,6 @@
     zip
     unzip
     updog
-    unstable.nh
     any-nix-shell
     ripgrep
     unstable.sesh
@@ -121,6 +120,7 @@
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
+
   home.sessionPath = [
     "$HOME/.local/bin:$PATH"
   ];

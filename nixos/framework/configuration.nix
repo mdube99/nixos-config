@@ -25,7 +25,6 @@
     ../configuration.nix
     ../../modules/nixos/hyprland.nix
     ../../modules/nixos/desktop.nix
-    ../../modules/nixos/stylix.nix
   ];
   networking.hostName = "framework";
 
