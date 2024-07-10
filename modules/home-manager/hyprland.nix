@@ -1,15 +1,26 @@
-{...}: {
-  home.file = {
-    ".config/hypr" = {
+{
+  pkgs,
+  inputs,
+  config,
+  asztal,
+  lib,
+  ...
+}: {
+  xdg.configFile = {
+    "hypr" = {
       source = ../../configurations/hypr;
       recursive = true;
     };
-    ".config/waybar" = {
+    "waybar" = {
       source = ../../configurations/waybar;
       recursive = true;
     };
-    ".config/wofi" = {
+    "wofi" = {
       source = ../../configurations/wofi;
+      recursive = true;
+    };
+    "BetterDiscord/themes" = {
+      source = ../../configurations/discordthemes;
       recursive = true;
     };
   };

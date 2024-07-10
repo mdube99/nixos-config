@@ -7,7 +7,13 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  # Define your Stylix colors here
+  stylixColors = config.lib.stylix.colors.withHashtag;
+  base0D = stylixColors.base0D;
+  # Define the specific color you want to use for tmux
+  tmuxPowerThemeColor = base0D; # Adjust this as per your preference
+in {
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
@@ -58,6 +64,11 @@
     };
     zellij = {
       enable = true;
+      settings = {
+        simplified_ui = true;
+        copy_command = "wl-copy";
+        pane_frames = false;
+      };
     };
     lsd = {
       enable = true;
@@ -86,7 +97,6 @@
     updog
     any-nix-shell
     ripgrep
-    unstable.sesh
     acpi
 
     cargo
@@ -118,7 +128,6 @@
     (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
   ];
 
-  # Enable home-manager and git
   programs.home-manager.enable = true;
 
   home.sessionPath = [

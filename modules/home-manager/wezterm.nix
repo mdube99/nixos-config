@@ -18,11 +18,9 @@
       config.enable_wayland = false
 
 
-      -- This is where you actually apply your config choices
-
-      -- For example, changing the color scheme:
-      --config.color_scheme = 'tokyonight_night'
       config.enable_tab_bar = false
+
+      -- config.default_prog = { 'zellij', '-l', 'welcome' }
 
       -- and finally, return the configuration to wezterm
 

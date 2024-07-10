@@ -39,7 +39,7 @@
     wayshot
     pavucontrol
     brightnessctl
-    unstable.wofi
+    # unstable.wofi
     hyprpaper
     waybar
   ];

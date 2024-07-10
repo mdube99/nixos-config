@@ -5,7 +5,13 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  # Define your Stylix colors here
+  stylixColors = config.lib.stylix.colors.withHashtag;
+  base0D = stylixColors.base0D;
+  # Define the specific color you want to use for tmux
+  tmuxPowerThemeColor = base0D; # Adjust this as per your preference
+in {
   programs.tmux = {
     enable = true;
     baseIndex = 1;
@@ -16,14 +22,14 @@
       pkgs.tmuxPlugins.better-mouse-mode
       pkgs.tmuxPlugins.sensible
       pkgs.tmuxPlugins.vim-tmux-navigator
-      # {
-      #   plugin = pkgs.tmuxPlugins.power-theme;
-      #   extraConfig = ''
-      #     #set -g @tmux_power_theme '#7aa2f7' # dark slate blue
-      #     set -g @tmux_power_right_arrow_icon     "█"
-      #     set -g @tmux_power_left_arrow_icon      "█"
-      #   '';
-      # }
+      {
+        plugin = pkgs.tmuxPlugins.power-theme;
+        extraConfig = ''
+          set -g @tmux_power_theme '${tmuxPowerThemeColor}'
+          set -g @tmux_power_right_arrow_icon     "█"
+          set -g @tmux_power_left_arrow_icon      "█"
+        '';
+      }
       pkgs.tmuxPlugins.fuzzback
     ];
 

@@ -18,12 +18,6 @@
 
     # You can also split up your configuration and import pieces of it here:
     ../modules/home-manager
-    ./tmux.nix
-    ./shell.nix
-    ./git.nix
-    ./wezterm.nix
-    ./firefox.nix
-    # ./vim.nix
   ];
 
   nixpkgs = {
@@ -60,20 +54,11 @@
   };
 
   #xdg.configFile."nvim" = {
-    #source = ./nvim;
-    #recursive = true;
+  #source = ./nvim;
+  #recursive = true;
   #};
 
   home.file.".Xresources".source = ../configurations/x/.Xresources;
-
-  # Add stuff for your user as you see fit:
-  programs.neovim = {
-    enable = true;
-    package = pkgs.unstable.neovim-unwrapped;
-    extraPackages = [
-      pkgs.rnix-lsp
-    ];
-  };
 
   programs.fzf = {
     enable = true;
@@ -84,12 +69,10 @@
     enableZshIntegration = true;
   };
 
-  programs.zellij.enable = true;
-
   programs.lsd = {
     enable = true;
     enableAliases = true;
-    };
+  };
 
   home.packages = with pkgs; [
     bat
@@ -124,19 +107,19 @@
     pipx
     poetry
 
-# network stuff
+    # network stuff
     nmap
     whois
     dig
     openssl
 
-# devops
+    # devops
     docker
     awscli2
     terraform
     ansible
 
-    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+    (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
   ];
 
   # Enable home-manager and git

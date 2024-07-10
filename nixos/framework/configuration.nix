@@ -27,6 +27,9 @@
     ../../modules/nixos/desktop.nix
   ];
   networking.hostName = "framework";
+  networking.resolvconf.enable = true;
+
+  nixpkgs.config.allowUnfree = true;
 
   boot = {
     initrd.luks.devices."luks-07d01450-5604-456e-8e6c-24e209f22c8a".device = "/dev/disk/by-uuid/07d01450-5604-456e-8e6c-24e209f22c8a";
@@ -36,6 +39,15 @@
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
   };
+
+  hardware = {
+    bluetooth.enable = true; # enables support for Bluetooth
+    bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  };
+
+  services.blueman.enable = true;
+
+  virtualisation.waydroid.enable = true;
 
   environment.systemPackages = with pkgs; [
     base16-schemes
