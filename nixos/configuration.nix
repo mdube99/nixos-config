@@ -56,6 +56,7 @@
   };
 
   virtualisation.vmware.guest.enable = true;
+  virtualisation.virtualbox.host.enable = true;
   virtualisation.docker.enable = true;
 
   # Enable sound with pipewire.

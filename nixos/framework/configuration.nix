@@ -33,7 +33,8 @@
 
   boot = {
     initrd.luks.devices."luks-07d01450-5604-456e-8e6c-24e209f22c8a".device = "/dev/disk/by-uuid/07d01450-5604-456e-8e6c-24e209f22c8a";
-    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_6_8;
     initrd.availableKernelModules = ["nvme" "xhci_pci" "thunderbolt"];
 
     loader.systemd-boot.enable = true;

@@ -8,7 +8,6 @@
     networkmanagerapplet
     wl-clipboard
     libnotify
-    flameshot
     xdg-desktop-portal-hyprland
     hypridle
     blueman
@@ -18,16 +17,25 @@
     slurp
   ];
 
-  services.dunst = {
-    enable = true;
-    settings = {
-      global = {
-        width = 300;
-        height = 300;
-        offset = "30x50";
-        origin = "top-right";
-        transparency = 10;
+  services = {
+    dunst = {
+      enable = true;
+      settings = {
+        global = {
+          width = 300;
+          height = 300;
+          offset = "30x50";
+          origin = "top-right";
+          transparency = 10;
+        };
       };
+    };
+    flameshot = {
+      enable = true;
+    };
+    udiskie = {
+      enable = true;
+      tray = "never";
     };
   };
 
@@ -105,25 +113,28 @@
     };
   };
 
-  stylix = {
-    enable = true;
-    image = ../../configurations/wallpapers/facet.jpg;
-
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyodark-terminal.yaml";
-
-    fonts = {
-      monospace = {
-        package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
-        name = "JetBrainsMono Nerd Font Mono";
-      };
-      sansSerif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans";
-      };
-      serif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Serif";
-      };
-    };
-  };
+  # stylix = {
+  #   enable = true;
+  #   image = ../../configurations/wallpapers/facet.jpg;
+  #
+  #   base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyodark-terminal.yaml";
+  #   polarity = "dark"; # “light” or “either”
+  #   cursor.package = pkgs.bibata-cursors;
+  #   cursor.name = "Bibata-Modern-Ice";
+  #
+  #   fonts = {
+  #     monospace = {
+  #       package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+  #       name = "JetBrainsMono Nerd Font Mono";
+  #     };
+  #     sansSerif = {
+  #       package = pkgs.dejavu_fonts;
+  #       name = "DejaVu Sans";
+  #     };
+  #     serif = {
+  #       package = pkgs.dejavu_fonts;
+  #       name = "DejaVu Serif";
+  #     };
+  #   };
+  # };
 }

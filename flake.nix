@@ -106,6 +106,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           ./home-manager/home.nix
+          ./modules/home-manager/stylix.nix
           ./modules/home-manager/pentest.nix
         ];
       };
@@ -115,6 +116,7 @@
         modules = [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
+          ./modules/home-manager/stylix.nix
         ];
       };
       "mark@framework" = home-manager.lib.homeManagerConfiguration {
@@ -123,6 +125,7 @@
         modules = [
           # > Our main home-manager configuration file <
           inputs.stylix.homeManagerModules.stylix
+          ./modules/home-manager/stylix.nix
           ./home-manager/home.nix
           ./modules/home-manager/desktop.nix
           ./modules/home-manager/hyprland.nix
