@@ -49,6 +49,7 @@
         "signon.rememberSignons" = false;
         "security.tls.version.min" = "1";
         "browser.fullscreen.autohide" = false;
+        "full-screen-api.ignore-widgets" = true;
       };
 
       # userChrome = ''

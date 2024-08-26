@@ -58,7 +58,7 @@
   #recursive = true;
   #};
 
-  home.file.".Xresources".source = ../configurations/x/.Xresources;
+  #home.file.".Xresources".source = ../configurations/x/.Xresources;
 
   programs.fzf = {
     enable = true;

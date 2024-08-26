@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [ -n "$(xrandr --current | grep DP-10)" ]; then
+  autorandr docked
+else
+  autorandr mobile
+fi

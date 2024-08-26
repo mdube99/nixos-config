@@ -1,0 +1,18 @@
+*dpi: 150
+Xft.dpi: 150
+Xft.autohint: 1
+Xft.antialias: true
+ft.hinting: true
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
+Xcursor.size: 35
+
+
+/* ST Settings */
+
+/* st.alpha: 0.90 */
+st.alphaOffset: 0.3
+*.font: JetBrainsMono Nerd Font:style:medium:pixelsize=20
+st.termname: st-256color
+st.borderpx: 5

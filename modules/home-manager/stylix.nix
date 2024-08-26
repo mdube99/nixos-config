@@ -1,10 +1,16 @@
 {pkgs, ...}: {
   stylix = {
     enable = true;
-    image = ../../configurations/wallpapers/facet.jpg;
+    image = ../../configurations/wallpapers/singularity.jpg;
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyodark-terminal.yaml";
+    imageScalingMode = "center";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-light-hard.yaml";
+    targets.xresources.enable = true;
+
     polarity = "dark"; # “light” or “either”
+    # polarity = "light"; # “light” or “either”
+
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";

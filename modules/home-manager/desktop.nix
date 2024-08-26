@@ -2,19 +2,22 @@
   home.packages = with pkgs; [
     discord
     betterdiscordctl
-    waydroid
+    # waydroid
     obsidian
-    wdisplays
+    # wdisplays
+    arandr
+    feh
     networkmanagerapplet
-    wl-clipboard
+    # wl-clipboard
     libnotify
-    xdg-desktop-portal-hyprland
-    hypridle
+    polybar-pulseaudio-control
+    #xdg-desktop-portal-hyprland
+    # hypridle
     blueman
+    pavucontrol
+    r2modman
 
-    # for screenshotting
-    grim
-    slurp
+    parsec-bin
   ];
 
   services = {
@@ -39,41 +42,93 @@
     };
   };
 
-  programs.wofi.enable = true;
+  xdg.configFile = {
+    "picom" = {
+      source = ../../configurations/picom;
+      recursive = true;
+    };
+  };
 
-  programs.hyprlock = {
+  programs.rofi = {
+    enable = true;
+  };
+  services.polybar = {
+    enable = true;
+    script = "polybar -c $HOME/nixos-config/configurations/polybar/config.ini";
+  };
+
+  # programs.hyprlock = {
+  #   enable = true;
+  #   settings = {
+  #     general = {
+  #       disable_loading_bar = true;
+  #       grace = 300;
+  #       hide_cursor = true;
+  #       no_fade_in = false;
+  #     };
+  #
+  #     background = [
+  #       {
+  #         path = "screenshot";
+  #         blur_passes = 3;
+  #         blur_size = 8;
+  #       }
+  #     ];
+  #
+  #     input-field = [
+  #       {
+  #         size = "200, 50";
+  #         position = "0, -80";
+  #         monitor = "";
+  #         dots_center = true;
+  #         fade_on_empty = false;
+  #         font_color = "rgb(202, 211, 245)";
+  #         inner_color = "rgb(91, 96, 120)";
+  #         outer_color = "rgb(24, 25, 38)";
+  #         outline_thickness = 5;
+  #         # placeholder_text = '\'<span foreground="##cad3f5">Password...</span>'\';
+  #         shadow_passes = 2;
+  #       }
+  #     ];
+  #   };
+  # };
+
+  stylix.targets.alacritty.enable = false;
+  stylix.targets.bat.enable = true;
+  programs.alacritty = {
     enable = true;
     settings = {
-      general = {
-        disable_loading_bar = true;
-        grace = 300;
-        hide_cursor = true;
-        no_fade_in = false;
+      colors = {
+        primary = {
+          background = "#ffffff";
+          foreground = "#1F2328";
+        };
+        cursor = {
+          text = "#ffffff";
+          cursor = "#1f2328";
+        };
+        normal = {
+          black = "#24292f";
+          red = "#cf222e";
+          green = "#116329";
+          yellow = "#4d2d00";
+          blue = "#0969da";
+          magenta = "#8250df";
+          cyan = "#1b7c83";
+          white = "#6e7781";
+        };
+        bright = {
+          black = "#57606a";
+          red = "#a40e26";
+          green = "#1a7f37";
+          yellow = "#633c01";
+          blue = "#218bff";
+          magenta = "#8250df";
+          cyan = "#1b7c83";
+          white = "#6e7781";
+        };
       };
-
-      background = [
-        {
-          path = "screenshot";
-          blur_passes = 3;
-          blur_size = 8;
-        }
-      ];
-
-      input-field = [
-        {
-          size = "200, 50";
-          position = "0, -80";
-          monitor = "";
-          dots_center = true;
-          fade_on_empty = false;
-          font_color = "rgb(202, 211, 245)";
-          inner_color = "rgb(91, 96, 120)";
-          outer_color = "rgb(24, 25, 38)";
-          outline_thickness = 5;
-          # placeholder_text = '\'<span foreground="##cad3f5">Password...</span>'\';
-          shadow_passes = 2;
-        }
-      ];
+      font.size = 14;
     };
   };
 
@@ -83,7 +138,7 @@
   ];
 
   services.kanshi = {
-    enable = true;
+    enable = false;
     systemdTarget = "hyprland-session.target";
 
     profiles = {
@@ -112,29 +167,4 @@
       };
     };
   };
-
-  # stylix = {
-  #   enable = true;
-  #   image = ../../configurations/wallpapers/facet.jpg;
-  #
-  #   base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyodark-terminal.yaml";
-  #   polarity = "dark"; # “light” or “either”
-  #   cursor.package = pkgs.bibata-cursors;
-  #   cursor.name = "Bibata-Modern-Ice";
-  #
-  #   fonts = {
-  #     monospace = {
-  #       package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
-  #       name = "JetBrainsMono Nerd Font Mono";
-  #     };
-  #     sansSerif = {
-  #       package = pkgs.dejavu_fonts;
-  #       name = "DejaVu Sans";
-  #     };
-  #     serif = {
-  #       package = pkgs.dejavu_fonts;
-  #       name = "DejaVu Serif";
-  #     };
-  #   };
-  # };
 }

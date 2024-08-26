@@ -68,6 +68,7 @@ in {
         simplified_ui = true;
         copy_command = "wl-copy";
         pane_frames = false;
+        default_layout = "compact";
       };
     };
     lsd = {

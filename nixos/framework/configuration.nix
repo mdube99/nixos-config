@@ -23,7 +23,8 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
     ../configuration.nix
-    ../../modules/nixos/hyprland.nix
+    #../../modules/nixos/hyprland.nix
+    ../../modules/nixos/i3.nix
     ../../modules/nixos/desktop.nix
   ];
   networking.hostName = "framework";
@@ -47,6 +48,7 @@
   };
 
   services.blueman.enable = true;
+  services.logind.lidSwitch = "ignore";
 
   virtualisation.waydroid.enable = true;
 

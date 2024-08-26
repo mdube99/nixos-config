@@ -1,0 +1,20 @@
+<monitors>
+  <layout>
+    <!-- ... and so on for eDP-1, DP-2, DP-3, DP-4, DP-5, DP-6, DP-7, DP-8, DP-9 -->
+
+    <output id="10">
+      <name>DP-10</name>
+      <x>0</x>
+      <y>0</y>
+      <mode>
+        <width>3440</width>
+        <height>1440</height>
+        <rate>144</rate>
+      </mode>
+      <orientation>normal</orientation>
+      <priority>1</priority>
+    </output>
+
+    <!-- ... and so on for DP-11 -->
+  </layout>
+</monitors>

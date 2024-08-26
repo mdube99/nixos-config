@@ -78,6 +78,7 @@
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
           inputs.stylix.nixosModules.stylix
           ./nixos/framework/configuration.nix
+          ./modules/nixos/stylix.nix
         ];
       };
       wsl = nixpkgs.lib.nixosSystem {
@@ -128,7 +129,7 @@
           ./modules/home-manager/stylix.nix
           ./home-manager/home.nix
           ./modules/home-manager/desktop.nix
-          ./modules/home-manager/hyprland.nix
+          #./modules/home-manager/hyprland.nix
         ];
       };
     };
