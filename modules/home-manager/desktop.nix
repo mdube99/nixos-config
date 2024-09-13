@@ -18,6 +18,7 @@
     r2modman
 
     parsec-bin
+    moonlight-qt
   ];
 
   services = {

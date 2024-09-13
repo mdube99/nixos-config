@@ -56,7 +56,7 @@
   };
 
   virtualisation.vmware.guest.enable = true;
-  virtualisation.virtualbox.host.enable = true;
+  #virtualisation.virtualbox.host.enable = true;
   virtualisation.docker.enable = true;
 
   # Enable sound with pipewire.
@@ -92,6 +92,8 @@
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
+
+  programs.nix-ld.enable = true;
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {

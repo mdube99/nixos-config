@@ -106,6 +106,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
+          inputs.stylix.homeManagerModules.stylix
           ./home-manager/home.nix
           ./modules/home-manager/stylix.nix
           ./modules/home-manager/pentest.nix
@@ -116,6 +117,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main home-manager configuration file <
+          inputs.stylix.homeManagerModules.stylix
           ./home-manager/home.nix
           ./modules/home-manager/stylix.nix
         ];
