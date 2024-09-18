@@ -19,6 +19,7 @@
 
     parsec-bin
     moonlight-qt
+    prismlauncher
   ];
 
   services = {
