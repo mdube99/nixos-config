@@ -1,14 +1,13 @@
 {
   inputs,
-  outputs,
-  config,
-  lib,
   pkgs,
   ...
 }: {
   programs.firefox = {
     enable = true;
     profiles.mark = {
+      # userChrome = builtins.readFile ../../configurations/firefox/userChrome.css;
+      # userContent = builtins.readFile ../../configurations/firefox/userContent.css;
       search.engines = {
         "Nix Packages" = {
           urls = [
@@ -43,6 +42,13 @@
       ];
 
       settings = {
+        "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+        # For Firefox GNOME theme:
+        # "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "browser.tabs.drawInTitlebar" = true;
+        "svg.context-properties.content.enabled" = true;
+
+        "browser.startup.homepage" = "about:home";
         "dom.security.https_only_mode" = true;
         "browser.download.panel.shown" = true;
         "identity.fxaccounts.enabled" = true;
@@ -51,10 +57,6 @@
         "browser.fullscreen.autohide" = false;
         "full-screen-api.ignore-widgets" = true;
       };
-
-      # userChrome = ''
-      #   /* some css */
-      # '';
 
       extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
         bitwarden
