@@ -25,6 +25,7 @@
       picom
     ];
   };
+  services.xserver.desktopManager.gnome.enable = true;
 
   services.xserver.displayManager.sessionCommands = ''
     ${pkgs.xorg.xrdb}/bin/xrdb -merge <${pkgs.writeText "Xresources" ''
