@@ -1,8 +1,4 @@
 {
-  inputs,
-  outputs,
-  lib,
-  config,
   pkgs,
   ...
 }: {
@@ -59,21 +55,72 @@
       #alias cpIP="tmux list-windows | grep '\*' | grep -E -o '([0-9]{1,3}[\.]){3}[0-9]{1,3}' | xsel --clipboard";
     };
 
-    zplug = {
-      enable = true;
-      plugins = [
-        {name = "joshskidmore/zsh-fzf-history-search";}
-        {name = "zsh-users/zsh-autosuggestions";} # Simple plugin installation
-        {name = "zsh-users/zsh-syntax-highlighting";}
-        {name = "zsh-users/zsh-history-substring-search";}
-        {name = "zap-zsh/completions";}
-        {name = "mdube99/zsh-vi-mode";}
-        {name = "zap-zsh/fzf";}
-        {
-          name = "zap-zsh/atmachine-prompt";
-          tags = [as:theme depth:1];
-        }
-      ];
-    };
+    plugins = [
+      {
+        # will source zsh-autosuggestions.plugin.zsh
+        name = "zsh-autosuggestions";
+        src = pkgs.fetchFromGitHub {
+          owner = "zsh-users";
+          repo = "zsh-autosuggestions";
+          rev = "v0.7.0";
+          sha256 = "sha256-KLUYpUu4DHRumQZ3w59m9aTW6TBKMCXl2UcKi4uMd7w=";
+        };
+      }
+      {
+        name = "zsh-syntax-highlighting";
+        src = pkgs.fetchFromGitHub {
+          owner = "zsh-users";
+          repo = "zsh-syntax-highlighting";
+          rev = "0.8.0";
+          sha256 = "sha256-iJdWopZwHpSyYl5/FQXEW7gl/SrKaYDEtTH9cGP7iPo=";
+        };
+      }
+      {
+        name = "completions";
+        src = pkgs.fetchFromGitHub {
+          owner = "zap-zsh";
+          repo = "completions";
+          rev = "e92051e99c5a0c29f40ceed33ade9a23096047c8";
+          sha256 = "sha256-tvEpQb/p7d/puzwK6CI/HKcB0412BopNAX+fKNPX9JE=";
+        };
+      }
+      {
+        name = "zsh-fzf-history-search";
+        src = pkgs.fetchFromGitHub {
+          owner = "joshskidmore";
+          repo = "zsh-fzf-history-search";
+          rev = "d5a9730b5b4cb0b39959f7f1044f9c52743832ba";
+          sha256 = "sha256-tQqIlkgIWPEdomofPlmWNEz/oNFA1qasILk4R5RWobY=";
+        };
+      }
+      {
+        name = "zsh-history-substring-search";
+        src = pkgs.fetchFromGitHub {
+          owner = "zsh-users";
+          repo = "zsh-history-substring-search";
+          rev = "87ce96b1862928d84b1afe7c173316614b30e301";
+          sha256 = "sha256-1+w0AeVJtu1EK5iNVwk3loenFuIyVlQmlw8TWliHZGI=";
+        };
+      }
+      {
+        name = "zsh-vi-mode";
+        src = pkgs.fetchFromGitHub {
+          owner = "mdube99";
+          repo = "zsh-vi-mode";
+          rev = "c10d8f21ff4f17651c80c64a488785488f1cee71";
+          sha256 = "sha256-7Ixv5afRow05GSHj7A+AgGnseuQaR8LpZVYC6jdl2ME=";
+        };
+      }
+      {
+        name = "atmachine-prompt";
+        file = "atmachine-prompt.zsh-theme";
+        src = pkgs.fetchFromGitHub {
+          owner = "zap-zsh";
+          repo = "atmachine-prompt";
+          rev = "5e35ddc80960ff3b7ca5b2ee7476341366fc497b";
+          sha256 = "12msgfqfnikny02sgiwkpr5jy7i8x9gyzyw5lcaii7kaqfjkxdbg";
+        };
+      }
+    ];
   };
 }
