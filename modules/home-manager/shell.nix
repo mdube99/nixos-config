@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.zsh = {
     enable = true;
     autocd = true;
@@ -26,13 +23,6 @@
           echo "use flake \"github:the-nix-way/dev-templates?dir=$1\"" >> .envrc;
           direnv allow;
         }
-
-      # Courtesy of Graham Helton
-      # e.g. cp `DL` .
-        DL() {
-      	  variable1=$(echo ~/Downloads/$(/usr/bin/ls -ltr ~/Downloads | tail -n1 | awk {"print \$9"}));
-      	  echo $variable1;
-        }
         eval "$(direnv hook zsh)"
     '';
 
@@ -47,25 +37,10 @@
       tk = "tmux kill-session";
       cat = "bat";
       clip = "xsel --clipboard";
-      #grep = "rg";
       activate = "source env/bin/activate";
-      IP = "tmux list-windows | grep \"\*\" | grep -E -o \"([0-9]{1,3}[\.]){3}[0-9]{1,3}\"";
-      cpIP = "tmux list-windows | grep \"\*\" | grep -E -o \"([0-9]{1,3}[\.]){3}[0-9]{1,3}\" | xsel --clipboard";
-      #dvd = "echo use flake \"github:the-nix-way/dev-templates?dir=$1\" >> .envrc && direnv allow";
-      #alias cpIP="tmux list-windows | grep '\*' | grep -E -o '([0-9]{1,3}[\.]){3}[0-9]{1,3}' | xsel --clipboard";
     };
 
     plugins = [
-      {
-        # will source zsh-autosuggestions.plugin.zsh
-        name = "zsh-autosuggestions";
-        src = pkgs.fetchFromGitHub {
-          owner = "zsh-users";
-          repo = "zsh-autosuggestions";
-          rev = "v0.7.0";
-          sha256 = "sha256-KLUYpUu4DHRumQZ3w59m9aTW6TBKMCXl2UcKi4uMd7w=";
-        };
-      }
       {
         name = "zsh-syntax-highlighting";
         src = pkgs.fetchFromGitHub {
@@ -76,30 +51,12 @@
         };
       }
       {
-        name = "completions";
-        src = pkgs.fetchFromGitHub {
-          owner = "zap-zsh";
-          repo = "completions";
-          rev = "e92051e99c5a0c29f40ceed33ade9a23096047c8";
-          sha256 = "sha256-tvEpQb/p7d/puzwK6CI/HKcB0412BopNAX+fKNPX9JE=";
-        };
-      }
-      {
         name = "zsh-fzf-history-search";
         src = pkgs.fetchFromGitHub {
           owner = "joshskidmore";
           repo = "zsh-fzf-history-search";
           rev = "d5a9730b5b4cb0b39959f7f1044f9c52743832ba";
           sha256 = "sha256-tQqIlkgIWPEdomofPlmWNEz/oNFA1qasILk4R5RWobY=";
-        };
-      }
-      {
-        name = "zsh-history-substring-search";
-        src = pkgs.fetchFromGitHub {
-          owner = "zsh-users";
-          repo = "zsh-history-substring-search";
-          rev = "87ce96b1862928d84b1afe7c173316614b30e301";
-          sha256 = "sha256-1+w0AeVJtu1EK5iNVwk3loenFuIyVlQmlw8TWliHZGI=";
         };
       }
       {
