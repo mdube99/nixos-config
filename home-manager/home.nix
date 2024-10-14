@@ -6,6 +6,7 @@
   lib,
   config,
   pkgs,
+  overlays,
   ...
 }: let
   # Define your Stylix colors here
@@ -83,6 +84,7 @@ in {
   };
 
   home.packages = with pkgs; [
+    sesh
     bat
     bottom
     coreutils
