@@ -10,7 +10,20 @@
   stylixColors = config.lib.stylix.colors.withHashtag;
   base0D = stylixColors.base0D;
   # Define the specific color you want to use for tmux
-  tmuxPowerThemeColor = base0D; # Adjust this as per your preference
+  tmuxBGColor = base0D; # Adjust this as per your preference
+
+  minimal-tmux-status =
+    pkgs.tmuxPlugins.mkTmuxPlugin
+    {
+      pluginName = "minimal";
+      version = "";
+      src = pkgs.fetchFromGitHub {
+        owner = "niksingh710";
+        repo = "minimal-tmux-status";
+        rev = "3bcfbc350ce4c652c7d4b0f7aeb77400962f4bbc";
+        sha256 = "sha256-UfOpuc/gW42i95MztUj6mDbNCdtK/pbO0Lgvzv+b448=";
+      };
+    };
 in {
   programs.tmux = {
     enable = true;
@@ -23,11 +36,9 @@ in {
       pkgs.tmuxPlugins.sensible
       pkgs.tmuxPlugins.vim-tmux-navigator
       {
-        plugin = pkgs.tmuxPlugins.power-theme;
+        plugin = minimal-tmux-status;
         extraConfig = ''
-          set -g @tmux_power_theme '${tmuxPowerThemeColor}'
-          set -g @tmux_power_right_arrow_icon     "█"
-          set -g @tmux_power_left_arrow_icon      "█"
+          set -g @minimal-tmux-bg "${tmuxBGColor}"
         '';
       }
       pkgs.tmuxPlugins.fuzzback
