@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   stylix = {
-    image = ../../configurations/wallpapers/singularity.jpg;
+    image = ../../configurations/wallpapers/interstellar_black_hole.png;
     imageScalingMode = "center";
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyodark-terminal.yaml";
