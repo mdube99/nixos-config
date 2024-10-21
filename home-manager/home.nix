@@ -127,6 +127,7 @@ in {
     awscli2
     terraform
     ansible
+    wireguard-tools
 
     (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
   ];
