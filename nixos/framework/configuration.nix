@@ -23,7 +23,7 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
     ../configuration.nix
-    #../../modules/nixos/hyprland.nix
+    ../../modules/nixos/hyprland.nix
     ../../modules/nixos/i3.nix
     ../../modules/nixos/desktop.nix
   ];
@@ -49,7 +49,7 @@
 
   services.blueman.enable = true;
   services.logind.lidSwitch = "ignore";
-  time.timeZone = "America/New_York";
+  time.timeZone = "America/Chicago";
 
   virtualisation.waydroid.enable = true;
 

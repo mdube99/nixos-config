@@ -11,21 +11,20 @@
 
   programs.i3lock.enable = true;
 
-  #services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.windowManager.i3 = {
-    enable = true;
-    package = pkgs.i3-gaps;
-    configFile = ../../configurations/i3/config;
-
-    extraPackages = with pkgs; [
-      i3status
-      i3blocks
-      brightnessctl
-      protonup-qt
-      picom
-    ];
-  };
-  services.xserver.desktopManager.gnome.enable = true;
+  services.desktopManager.plasma6.enable = true;
+  # services.xserver.windowManager.i3 = {
+  #   enable = true;
+  #   package = pkgs.i3-gaps;
+  #   configFile = ../../configurations/i3/config;
+  #
+  #   extraPackages = with pkgs; [
+  #     i3status
+  #     i3blocks
+  #     brightnessctl
+  #     protonup-qt
+  #     picom
+  #   ];
+  # };
 
   services.xserver.displayManager.sessionCommands = ''
     ${pkgs.xorg.xrdb}/bin/xrdb -merge <${pkgs.writeText "Xresources" ''
