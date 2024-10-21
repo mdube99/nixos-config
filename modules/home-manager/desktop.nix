@@ -12,7 +12,6 @@
     libnotify
     polybar-pulseaudio-control
     #xdg-desktop-portal-hyprland
-    # hypridle
     blueman
     pavucontrol
     r2modman
@@ -59,41 +58,41 @@
     script = "polybar -c $HOME/nixos-config/configurations/polybar/config.ini";
   };
 
-  # programs.hyprlock = {
-  #   enable = true;
-  #   settings = {
-  #     general = {
-  #       disable_loading_bar = true;
-  #       grace = 300;
-  #       hide_cursor = true;
-  #       no_fade_in = false;
-  #     };
-  #
-  #     background = [
-  #       {
-  #         path = "screenshot";
-  #         blur_passes = 3;
-  #         blur_size = 8;
-  #       }
-  #     ];
-  #
-  #     input-field = [
-  #       {
-  #         size = "200, 50";
-  #         position = "0, -80";
-  #         monitor = "";
-  #         dots_center = true;
-  #         fade_on_empty = false;
-  #         font_color = "rgb(202, 211, 245)";
-  #         inner_color = "rgb(91, 96, 120)";
-  #         outer_color = "rgb(24, 25, 38)";
-  #         outline_thickness = 5;
-  #         # placeholder_text = '\'<span foreground="##cad3f5">Password...</span>'\';
-  #         shadow_passes = 2;
-  #       }
-  #     ];
-  #   };
-  # };
+  programs.hyprlock = {
+    enable = true;
+    settings = {
+      general = {
+        disable_loading_bar = true;
+        grace = 300;
+        hide_cursor = true;
+        no_fade_in = false;
+      };
+
+      background = [
+        {
+          path = "screenshot";
+          blur_passes = 3;
+          blur_size = 8;
+        }
+      ];
+
+      input-field = [
+        {
+          size = "200, 50";
+          position = "0, -80";
+          monitor = "";
+          dots_center = true;
+          fade_on_empty = false;
+          font_color = "rgb(202, 211, 245)";
+          inner_color = "rgb(91, 96, 120)";
+          outer_color = "rgb(24, 25, 38)";
+          outline_thickness = 5;
+          # placeholder_text = '\'<span foreground="##cad3f5">Password...</span>'\';
+          shadow_passes = 2;
+        }
+      ];
+    };
+  };
 
   stylix.targets.alacritty.enable = false;
   stylix.targets.bat.enable = true;
@@ -139,6 +138,12 @@
     "electron-25.9.0"
   ];
 
+  xdg.configFile = {
+    "BetterDiscord/themes" = {
+      source = ../../configurations/discordthemes;
+      recursive = true;
+    };
+  };
   services.kanshi = {
     enable = false;
     systemdTarget = "hyprland-session.target";

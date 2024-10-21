@@ -19,9 +19,10 @@
       source = ../../configurations/wofi;
       recursive = true;
     };
-    "BetterDiscord/themes" = {
-      source = ../../configurations/discordthemes;
-      recursive = true;
-    };
   };
+
+  home.packages = with pkgs; [
+    hypridle
+    tailscale-systray
+  ];
 }
