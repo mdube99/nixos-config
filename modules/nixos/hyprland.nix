@@ -1,14 +1,4 @@
-{
-  pkgs,
-  inputs,
-  config,
-  asztal,
-  lib,
-  ...
-}: {
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-
+{pkgs, ...}: {
   programs.hyprland = {
     enable = true;
   };
@@ -39,7 +29,7 @@
     wayshot
     pavucontrol
     brightnessctl
-    # unstable.wofi
+    unstable.wofi
     hyprpaper
     waybar
   ];
@@ -72,6 +62,10 @@
       glib-networking.enable = true;
       gnome-keyring.enable = true;
       gnome-online-accounts.enable = true;
+    };
+    xserver = {
+      enable = true;
+      displayManager.gdm.enable = true;
     };
   };
 }
