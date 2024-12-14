@@ -1,7 +1,4 @@
 {
-  inputs,
-  outputs,
-  lib,
   config,
   pkgs,
   ...
@@ -32,6 +29,7 @@ in {
     mouse = true;
 
     plugins = [
+      pkgs.tmuxPlugins.logging
       pkgs.tmuxPlugins.better-mouse-mode
       pkgs.tmuxPlugins.sensible
       pkgs.tmuxPlugins.vim-tmux-navigator

@@ -63,15 +63,6 @@ in {
       enable = true;
       enableZshIntegration = true;
     };
-    zellij = {
-      enable = true;
-      settings = {
-        simplified_ui = true;
-        copy_command = "wl-copy";
-        pane_frames = false;
-        default_layout = "compact";
-      };
-    };
     lsd = {
       enable = true;
       enableAliases = true;
@@ -111,10 +102,8 @@ in {
 
     xsel
     xclip
-    gcc
     tree
     pipx
-    poetry
 
     # network stuff
     nmap
@@ -125,8 +114,6 @@ in {
     # devops
     docker
     awscli2
-    terraform
-    ansible
     wireguard-tools
 
     (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
