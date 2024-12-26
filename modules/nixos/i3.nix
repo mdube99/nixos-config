@@ -12,6 +12,7 @@
   programs.i3lock.enable = true;
 
   services.desktopManager.plasma6.enable = true;
+  programs.kdeconnect.enable = true;
   # services.xserver.windowManager.i3 = {
   #   enable = true;
   #   package = pkgs.i3-gaps;
