@@ -7,6 +7,6 @@ _: {
     ./git.nix
     ./wezterm.nix
     ./firefox.nix
-    ./nixvim.nix
+    ./nvim.nix
   ];
 }

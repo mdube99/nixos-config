@@ -1,6 +1,7 @@
 {
-  pkgs,
   inputs,
+  outputs,
+  pkgs,
   ...
 }: {
   home.packages = with pkgs; [
@@ -15,7 +16,7 @@
     moonlight-qt
     prismlauncher
 
-    inputs.zen-browser.packages."${system}".default
+    inputs.zen-browser.packages."${system}"
   ];
 
   # services = {

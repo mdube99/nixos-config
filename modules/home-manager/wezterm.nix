@@ -27,4 +27,5 @@
       return config
     '';
   };
+  programs.alacritty.enable = true;
 }
