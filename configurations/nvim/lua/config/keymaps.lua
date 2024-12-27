@@ -18,7 +18,7 @@ vim.keymap.set('n', '<Tab>', '<cmd>bn<CR>')
 vim.keymap.set('n', '<S-Tab>', '<cmd>bp<CR>')
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
 
-vim.keymap.set('n', '<leader>fw', '<cmd>FzfLua blines<CR>')
+vim.keymap.set('n', '<leader>fw', '<cmd>FzfLua grep_project<CR>')
 
 local nvim_tmux_nav = require 'nvim-tmux-navigation'
 vim.keymap.set('n', '<C-h>', nvim_tmux_nav.NvimTmuxNavigateLeft)
