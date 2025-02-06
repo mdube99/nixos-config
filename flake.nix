@@ -13,8 +13,8 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # styling
-    # stylix.url = "github:danth/stylix/release-24.11";
-    stylix.url = "github:danth/stylix";
+    stylix.url = "github:danth/stylix/release-24.11";
+    # stylix.url = "github:danth/stylix";
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 

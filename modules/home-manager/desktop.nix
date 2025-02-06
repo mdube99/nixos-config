@@ -16,7 +16,7 @@
     moonlight-qt
     prismlauncher
 
-    inputs.zen-browser.packages."${system}"
+    inputs.zen-browser.packages."${system}".default
   ];
 
   # services = {
