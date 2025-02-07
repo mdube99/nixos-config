@@ -10,4 +10,4 @@ set -e
 
 # Install nix
 curl -L https://nixos.org/nix/install | sh -s -- --daemon --yes
-sed -i 's/pwn3d_label = .*/pwn3d_label = (Admin Access)' ~/.nxc/nxc.conf
+sed -i 's/pwn3d_label = Pwn3d!/pwn3d_label = (Admin Access)/' ~/.nxc/nxc.conf
