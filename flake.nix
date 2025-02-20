@@ -121,6 +121,7 @@
           inputs.stylix.homeManagerModules.stylix
           ./home-manager/home.nix
           ./modules/home-manager/stylix.nix
+          ./modules/home-manager/pentest.nix
         ];
       };
       "mark@framework" = home-manager.lib.homeManagerConfiguration {

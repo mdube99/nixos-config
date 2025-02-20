@@ -11,3 +11,11 @@ set -e
 # Install nix
 curl -L https://nixos.org/nix/install | sh -s -- --daemon --yes
 sed -i 's/pwn3d_label = Pwn3d!/pwn3d_label = (Admin Access)/' ~/.nxc/nxc.conf
+git clone https://github.com/santoru/shcheck /opt/tools/shcheck
+git clone https://github.com/mdube99/custom-nuclei-templates /opt/tools/custom-nuclei-templates
+git clone https://github.com/mdube99/shrawler /opt/tools/shrawler
+git clone https://github.com/mdube99/ldapenum /opt/tools/ldapenum
+git clone https://github.com/nyxgeek/onedrive_user_enum.git /opt/tools/onedrive_user_enum
+git clone https://github.com/insidetrust/statistically-likely-usernames /usr/share/wordlists/statistically-likely-usernames
+pip install git+https://github.com/blacklanternsecurity/trevorproxy
+pip install git+https://github.com/blacklanternsecurity/trevorspray
