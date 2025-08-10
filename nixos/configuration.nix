@@ -56,11 +56,10 @@
   };
 
   virtualisation.vmware.guest.enable = true;
-  #virtualisation.virtualbox.host.enable = true;
   virtualisation.docker.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
