@@ -65,7 +65,7 @@ in {
     };
     lsd = {
       enable = true;
-      enableAliases = true;
+      enableZshIntegration = true;
     };
     direnv = {
       enable = true;
@@ -75,6 +75,9 @@ in {
   };
 
   home.packages = with pkgs; [
+    unstable.goose-cli
+    unstable.zed-editor
+    dconf
     sesh
     bat
     bottom
@@ -104,6 +107,7 @@ in {
     xclip
     tree
     pipx
+    uv
 
     # network stuff
     nmap
@@ -115,8 +119,6 @@ in {
     docker
     awscli2
     wireguard-tools
-
-    (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
   ];
 
   programs.home-manager.enable = true;
