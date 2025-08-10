@@ -1,3 +1,4 @@
+vim.g.lazyvim_picker = 'telescope'
 -- Set highlight on search
 vim.o.hlsearch = true
 vim.o.showmode = false -- don't show what mode, this will let lualine do it for you
