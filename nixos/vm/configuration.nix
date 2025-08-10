@@ -23,11 +23,9 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
     ../configuration.nix
-    ../../modules/nixos/i3.nix
+    #../../modules/nixos/i3.nix
   ];
-  # TODO: Set your hostname
   networking.hostName = "vm";
-  # TODO: This is just an example, be sure to use whatever bootloader you prefer
   #boot.loader.systemd-boot.enable = true;
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
