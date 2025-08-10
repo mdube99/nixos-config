@@ -19,34 +19,18 @@
     inputs.zen-browser.packages."${system}".default
   ];
 
-  # services = {
-  #   # dunst = {
-  #   #   enable = true;
-  #   #   settings = {
-  #   #     global = {
-  #   #       width = 300;
-  #   #       height = 300;
-  #   #       offset = "30x50";
-  #   #       origin = "top-right";
-  #   #       transparency = 10;
-  #   #     };
-  #   #   };
-  #   # };
-  #   # flameshot = {
-  #   #   enable = true;
-  #   # };
-  #   # udiskie = {
-  #   #   enable = true;
-  #   #   tray = "never";
-  #   # };
-  # };
 
-  xdg.configFile = {
-    "picom" = {
-      source = ../../configurations/picom;
-      recursive = true;
+  dconf = {
+    enable = true;
+    settings."org/gnome/shell" = {
+      disable-user-extensions = false;
+      enabled-extensions = with pkgs.gnomeExtensions; [
+          "space-bar"
+          "tactile"
+          "undecorate"
+        ];
+      };
     };
-  };
 
   # needed for obsidian
   nixpkgs.config.permittedInsecurePackages = [

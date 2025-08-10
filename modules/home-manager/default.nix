@@ -6,7 +6,6 @@ _: {
     ./shell.nix
     ./git.nix
     ./wezterm.nix
-    ./firefox.nix
     ./nvim.nix
   ];
 }
