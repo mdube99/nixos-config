@@ -5,8 +5,8 @@
 
       displayManager.gdm.enable = true;
       # services.xserver.desktopManager.gnome.enable = true;
-      libinput.naturalScrolling = true;
     };
+    libinput.touchpad.naturalScrolling = true;
   };
 
   programs.i3lock.enable = true;
@@ -23,7 +23,7 @@
 
   services.xserver = {
     layout = "us";
-    xkbVariant = "";
+    xkb.variant = "";
   };
 
   services.autorandr = {
