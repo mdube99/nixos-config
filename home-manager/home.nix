@@ -72,6 +72,9 @@ in {
       enableZshIntegration = true;
       nix-direnv.enable = true;
     };
+    zellij = {
+      enable = true;
+    };
   };
 
   home.packages = with pkgs; [
