@@ -3,12 +3,6 @@
   pkgs,
   ...
 }: let
-  # Define your Stylix colors here
-  stylixColors = config.lib.stylix.colors.withHashtag;
-  base0D = stylixColors.base0D;
-  # Define the specific color you want to use for tmux
-  tmuxBGColor = base0D; # Adjust this as per your preference
-
   minimal-tmux-status =
     pkgs.tmuxPlugins.mkTmuxPlugin
     {
@@ -35,14 +29,13 @@ in {
       pkgs.tmuxPlugins.vim-tmux-navigator
       {
         plugin = minimal-tmux-status;
-        extraConfig = ''
-          set -g @minimal-tmux-bg "${tmuxBGColor}"
-        '';
       }
       pkgs.tmuxPlugins.fuzzback
     ];
 
     extraConfig = ''
+      set -g default-shell /bin/zsh
+      
       bind-key "t" run-shell "sesh connect \"$(
           sesh list | fzf-tmux -p 55%,60% \
               --no-sort --border-label ' sesh ' --prompt '⚡  ' \
