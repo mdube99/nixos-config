@@ -9,11 +9,6 @@
   overlays,
   ...
 }: let
-  # Define your Stylix colors here
-  stylixColors = config.lib.stylix.colors.withHashtag;
-  base0D = stylixColors.base0D;
-  # Define the specific color you want to use for tmux
-  tmuxPowerThemeColor = base0D; # Adjust this as per your preference
 in {
   # You can import other home-manager modules here
   imports = [

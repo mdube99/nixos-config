@@ -120,8 +120,8 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main home-manager configuration file <
-          inputs.stylix.homeModules.stylix
-          ./modules/home-manager/stylix.nix
+          # inputs.stylix.homeModules.stylix
+          # ./modules/home-manager/stylix.nix
           ./home-manager/home.nix
           ./modules/home-manager/desktop.nix
         ];
