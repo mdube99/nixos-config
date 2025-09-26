@@ -48,8 +48,6 @@
     };
   };
 
-  stylix.targets.neovim.enable = false;
-
   # Tools available during activation
   home.extraActivationPath = with pkgs; [
     git
