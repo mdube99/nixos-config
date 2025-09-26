@@ -23,9 +23,12 @@
           nix flake init --template "https://flakehub.com/f/the-nix-way/dev-templates/*#$1";
           direnv allow;
         }
-        eval "$(direnv hook zsh)"
         autoload -Uz compinit && compinit
         zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+    '';
+
+    initExtra = ''
+      eval "$(direnv hook zsh)"
     '';
 
     initContent = "source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh && any-nix-shell zsh --info-right | source /dev/stdin";
