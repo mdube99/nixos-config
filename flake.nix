@@ -108,7 +108,6 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          # > Our main home-manager configuration file <
           inputs.stylix.homeModules.stylix
           ./home-manager/home.nix
           ./modules/home-manager/stylix.nix
@@ -119,9 +118,14 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          # > Our main home-manager configuration file <
-          # inputs.stylix.homeModules.stylix
-          # ./modules/home-manager/stylix.nix
+          ./home-manager/home.nix
+          ./modules/home-manager/desktop.nix
+        ];
+      };
+      "mark@desktop" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
           ./home-manager/home.nix
           ./modules/home-manager/desktop.nix
         ];
